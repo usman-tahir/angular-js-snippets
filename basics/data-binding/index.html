@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" ng-app="todoApp">
+    <head>
+        <meta charset="utf-8">
+        <title>AngularJS Data Binding</title>
+        <link rel="stylesheet" href="./todo.css">
+    </head>
+    <body>
+        <h2>Todo</h2>
+        <div ng-controller="TodoListController as todoList">
+            <span>{{todoList.remaining()}} of {{todoList.todos.length}}</span>
+            [ <a href="" ng-click="todoList.archive()">archive</a> ]
+
+            <ul class="unstyled">
+                <li ng-repeat="todo in todoList.todos">
+                    <label for="todo" class="checkbox">
+                        <input type="checkbox" ng-model="todo.done">
+                        <span class="done-{{todo.done}}">{{todo.text}}</span>
+                    </label>
+                </li>
+            </ul>
+
+            <form action="#" ng-submit="todoList.addTodo()">
+                <input type="text" ng-model="todoList.todoText" size="30" placeholder="Add new todo here">
+                <input type="submit" class="btn-primary" value="add">
+            </form>
+
+            <!-- AngularJS 1.6.5 -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+            <!-- Logic for TodoListController -->
+            <script src="./todo.js"></script>
+        </div>
+    </body>
+</html>

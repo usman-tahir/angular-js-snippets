@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>AngularJS Shopping Cart</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    </head>
+    <body>
+        <div ng-app="ShoppingCart" ng-controller="ShoppingCartController">
+            <ul>
+                <li ng-repeat="p in products">
+                    {{p}}
+                    <span ng-click="removeItem($index)">&times;</span>
+                </li>
+            </ul>
+            <input ng-model="item">
+            <button ng-click="addItem()">Add</button>
+            <p>{{errorText}}</p>
+        </div>
+
+        <!-- AngularJS 1.6.5 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+        <!-- Shopping Cart Logic -->
+        <script src="./shoppingCart.js"></script>
+    </body>
+</html>

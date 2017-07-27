@@ -3,12 +3,14 @@
     <head>
         <meta charset="utf-8">
         <title>AngularJS Minesweeper</title>
+        <link rel="stylesheet" href="./css/styles.css">
     </head>
     <body ng-controller="MinesweeperController">
-        <table border="1">
+        <table class="minefield">
             <tr ng-repeat="row in minefield.rows">
-                <td ng-repeat="spot in row.spots">
-                    {{spot.isRevealed}}
+                <td ng-repeat="spot in row.spots" ng-click="spot.isRevealed = true">
+                    <img ng-if="spot.isRevealed" src="./images/tiles/empty.png">
+                    <img ng-if="!spot.isRevealed" src="./images/tiles/covered.png">
                 </td>
             </tr>
         </table>

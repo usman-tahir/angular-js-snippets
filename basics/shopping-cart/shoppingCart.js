@@ -20,7 +20,7 @@ app.controller("ShoppingCartController", function ($scope) {
             $scope.products.push($scope.item);
             $scope.item = ''; // Clear the input
         } else {
-            $scope.errorText = "The item is already in your shopping list.";
+            $scope.errorText = $scope.item + " is already in your shopping list.";
         }
     }
 

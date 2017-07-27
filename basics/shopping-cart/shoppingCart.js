@@ -3,7 +3,6 @@ var app = angular.module("ShoppingCart", []);
 
 app.controller("ShoppingCartController", function ($scope) {
     $scope.products = ["Milk", "Bread", "Cheese"];
-    
 
     $scope.addItem = function () {
         $scope.errorText = "";

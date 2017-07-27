@@ -1,11 +1,21 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="Minesweeper">
     <head>
         <meta charset="utf-8">
         <title>AngularJS Minesweeper</title>
     </head>
     <body ng-controller="MinesweeperController">
+        <table border="1">
+            <tr ng-repeat="row in minefield.rows">
+                <td ng-repeat="spot in row.spots">
+                    {{spot.isRevealed}}
+                </td>
+            </tr>
+        </table>
+
         <!-- AngularJS 1.6.5 -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+        <!-- Logic for Minesweeper -->
+        <script src="js/app.js"></script>
     </body>
 </html>

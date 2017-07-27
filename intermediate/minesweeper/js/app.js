@@ -7,7 +7,8 @@ app.controller("MinesweeperController", function($scope) {
     function createMinefield(size) {
         var minefield = {},
             i,
-            j;
+            j,
+            k;
 
         minefield.rows = [];
 
@@ -23,7 +24,12 @@ app.controller("MinesweeperController", function($scope) {
             }
             minefield.rows.push(row);
         }
-        placeRandomMine(minefield, size); // One mine
+
+        // Add mines based on the size of the board
+        // Revise later to an algorithmic approach to adding mines
+        for (k = 0; k < size; k += 1) {
+            placeRandomMine(minefield, size);
+        }
         return minefield;
     }
 

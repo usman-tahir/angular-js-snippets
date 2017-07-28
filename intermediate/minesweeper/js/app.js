@@ -31,7 +31,6 @@ app.controller("MinesweeperController", function($scope) {
         for (k = 0; k < $scope.minefieldSize; k += 1) {
             placeRandomMine(minefield, $scope.minefieldSize);
         }
-        console.log(minefield);
         calculateNeighboringNumbers(minefield);
         return minefield;
     }
@@ -44,7 +43,6 @@ app.controller("MinesweeperController", function($scope) {
         var row = Math.round(Math.random() * (size - 1)),
             column = Math.round(Math.random() * (size - 1)),
             spot = getSpot(minefield, row, column);
-        
         spot.content = "mine";
     }
 
@@ -57,7 +55,6 @@ app.controller("MinesweeperController", function($scope) {
         var currentSpot = getSpot(minefield, row, column),
             mineCount = 0,
             tempSpot;
-        console.log(currentSpot);
 
         // If the current spot contains a mine, it does not get allocated a number
         if (currentSpot.content == "mine") {

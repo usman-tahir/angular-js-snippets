@@ -9,8 +9,8 @@
         <table class="minefield">
             <tr ng-repeat="row in minefield.rows">
                 <td ng-repeat="spot in row.spots" ng-click="spot.isRevealed = true">
-                    <img ng-if="spot.isRevealed && spot.content == 'empty'" src="./images/tiles/empty.png">
                     <img ng-if="!spot.isRevealed" src="./images/tiles/covered.png">
+                    <img ng-if="spot.isRevealed && spot.content == 'empty'" src="./images/tiles/empty.png">
                     <img ng-if="spot.isRevealed && spot.content == 'mine'" src="./images/tiles/mine.png">
                     <img ng-if="spot.isRevealed && spot.content == 1" src="./images/tiles/number-1.png">
                     <img ng-if="spot.isRevealed && spot.content == 2" src="./images/tiles/number-2.png">

@@ -6,7 +6,8 @@
         <link rel="stylesheet" href="./css/styles.css">
     </head>
     <body ng-controller="MinesweeperController">
-        <h3 ng-if="isWinningMessageVisible">You won!</h3>
+        <h3 class="message" ng-if="hasWonMessageVisible">You won!</h3>
+        <h3 class="message" ng-if="hasLostMessageVisible">You lost!</h3>
         <table class="minefield">
             <tr ng-repeat="row in minefield.rows">
                 <td ng-repeat="spot in row.spots" ng-click="uncoverSpot(spot)">

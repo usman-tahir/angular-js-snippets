@@ -1,12 +1,16 @@
 @charset "utf-8";
 
-
-
 .minefield {
     line-height: 0;
     border-spacing: 0;
+    margin: 15px auto;
 }
 
 .minefield td {
     padding: 0;
+}
+
+.message {
+    text-align: center;
+    margin-bottom: 15px;
 }

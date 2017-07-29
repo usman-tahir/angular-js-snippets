@@ -7,8 +7,13 @@ app.controller("MinesweeperController", function($scope) {
 
     $scope.uncoverSpot = function (spot) {
         spot.isRevealed = true;
-        if (hasWon($scope.minefield)) {
-            $scope.isWinningMessageVisible = true;
+
+        if (spot.content == "mine") {
+            $scope.hasLostMessageVisible = true;
+        } else {
+            if (hasWon($scope.minefield)) {
+                $scope.hasWonMessageVisible = true;
+            }
         }
     }
 

@@ -2,8 +2,15 @@
 var app = angular.module("Minesweeper", []);
 
 app.controller("MinesweeperController", function($scope) {
-    $scope.minefieldSize = 5;
+    $scope.minefieldSize = 9;
     $scope.minefield = createMinefield(); // Default is 9
+
+    $scope.uncoverSpot = function (spot) {
+        spot.isRevealed = true;
+        if (hasWon($scope.minefield)) {
+            $scope.isWinningMessageVisible = true;
+        }
+    }
 
     function createMinefield() {
         var minefield = {},
@@ -109,5 +116,21 @@ app.controller("MinesweeperController", function($scope) {
                 calculateNeighboringMines(minefield, j, i);
             }
         }
+    }
+
+    function hasWon(minefield) {
+        var currentSpot,
+            x,
+            y;
+        
+        for (x = 0; x < $scope.minefieldSize; x += 1) {
+            for (y = 0; y < $scope.minefieldSize; y += 1) {
+                currentSpot = getSpot(minefield, y, x);
+                if (currentSpot.isRevealed && currentSpot.content != "mine") {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 });

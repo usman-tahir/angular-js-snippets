@@ -73,7 +73,7 @@
         i,
         j;
 
-    for (i = 0; i < (matches * 2), i += 1) {
+    for (i = 0; i < (matches * 2); i += 1) {
       pool.push(i);
     }
 

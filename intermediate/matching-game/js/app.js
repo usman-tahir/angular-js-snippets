@@ -49,6 +49,7 @@
       }
       deck.rows.push(row);
     }
+    console.log(deck);
     return deck;
   }
 
@@ -132,6 +133,7 @@
     // Start the timer as soon as the start button is pressed
     $scope.start = function() {
       ($scope.startTimer = function() {
+        $scope.deck = createDeck();
         $scope.timeLimit -= 1000;
         $scope.isCritical = $scope.timeLimit <= 10000 ? true : false;
         $scope.timer = $timeout($scope.startTimer, 1000);
@@ -146,7 +148,7 @@
       $scope.stopTimer = function() {
         $timeout.cancel($scope.timer);
         $scope.inGame = false;
-        $previousCard = null;
+        previousCard = null;
         currentSessionOpen = false;
         numberOfPairs = 0;
       }

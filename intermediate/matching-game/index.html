@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MatchingGame">
+  <head>
+    <meta charset="utf-8">
+    <title>Card Matching Game</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <!-- Custom theme for card flipping -->
+    <link rel="stylesheet" href="./css/flip.css">
+  </head>
+  <body>
+    <div class="center" ng-controller="CardController">
+      <!-- Timer for the game -->
+      <div class="timer" ng-class="{critical:isCritical}">
+        {{timeLimit | date: 'm:ss'}}
+      </div>
+
+      <!-- Table to house all the cards -->
+      <table class="table-top">
+        <tr ng-repeat="row in deck.rows">
+          <td ng-repeat="card in row.cards">
+            <div class="card-container {{!card.isFaceUp ? '' : 'flip'}}" ng-click="isGuarding || check(card)">
+              <div class="card-shadow">
+                <div class="front-face"></div>
+                <div class="back face text-center pagination-center">
+                  <p>{{card.item}}</p>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Start button -->
+      <div class="start-button">
+        <button type="button" class="btn btn-default btn-lg" ng-disabled="inGame == true" ng-click="start()">
+          Start
+        </button>
+      </div>
+    </div>
+    <!-- AngularJS 1.6.5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <!-- Angular Animate 1.6.5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+  </body>
+</html>
